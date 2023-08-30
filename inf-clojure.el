@@ -1286,7 +1286,7 @@ in the results buffer.  If END-REGEXP is nil, the result string
 will end at (point-max) in the results buffer.  It cuts out the
 output from and including the `inf-clojure-prompt`."
   (let ((redirect-buffer-name inf-clojure--redirect-buffer-name)
-        (sanitized-command (inf-clojure--sanitize-command command)))
+        (sanitized-command (string-trim command)))
     (when (not (string-empty-p sanitized-command))
       (inf-clojure--log-string command "----CMD->")
       (with-current-buffer (inf-clojure--get-redirect-buffer)
